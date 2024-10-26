@@ -16,6 +16,10 @@ You can also:
 The container mounts the app/automatic_repo folder as a volume, so you can add models and other files to it.
 After the first run, you will find the folder under app/automatic_repo.
 
+## Pre-run script
+
+You can add a pre_run.sh file to the app folder, and it will be run on startup. This can be used to install dependencies for python in case something is missing.
+
 ## Run
 
 ```
