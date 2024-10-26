@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  automatic:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/mnt/app
+    ports:
+      - 7860:7860
+    command:
+      [
+        "/bin/bash",
+        "-c",
+        "cd /mnt/app && chmod +x ./entrypoint.sh && ./entrypoint.sh",
+      ]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
